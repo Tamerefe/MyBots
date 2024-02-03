@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, InteractionCollector } = require('discord.js');
 
 const client = new Client({
 
@@ -12,11 +12,11 @@ const client = new Client({
 
 })
 
-client.on("ready", (c) => {
+client.on('ready', (c) => {
     console.log(`${c.user.tag} is online •`);
 })
 
-client.on("messageCreate", (message) => {
+client.on('messageCreate', (message) => {
 
     if(message.author.bot){
         return;
@@ -24,6 +24,26 @@ client.on("messageCreate", (message) => {
 
     if(message.content == 'hello'){
         message.reply("hello");
+    }
+})
+
+client.on('interactionCreate', (interaction) => {
+    if (!interaction.isChatInputCommand()) return; 
+
+    if(interaction.commandName === 'hey'){
+        interaction.reply('hey!');
+    }
+
+    if(interaction.commandName === 'ping'){
+        interaction.reply('pong!');
+    }
+
+    // FIX IT
+    if(interaction.commandName === 'add'){
+        const num1 = interaction.option.get('first-number');
+        const num2 = interaction.option.get('second-number');  
+
+        console.log(num1,num2);
     }
 })
 
