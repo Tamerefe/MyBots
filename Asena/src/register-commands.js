@@ -11,20 +11,32 @@ const commands = [
     description: 'Pong!',
   },
   {
-    name: 'add',
-    description: 'Adds two numbers.',
+    name: 'math',
+    description: 'Adds two numbers',
     options: [
       {
         name: 'first-number',
-        description: 'The first number.',
+        description: 'The first number',
         type: ApplicationCommandOptionType.Number,
-        required: 'true',
+        required: true,
+      },
+      {
+        name: 'operator',
+        description: 'Select operator',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+        choices: [
+          { name: '+', value: '+' },
+          { name: '-', value: '-' },
+          { name: '*', value: '*' },
+          { name: '/', value: '/' }
+        ]
       },
       {
         name: 'second-number',
-        description: 'The second number.',
+        description: 'The second number',
         type: ApplicationCommandOptionType.Number,
-        required: 'true',
+        required: true,
       },
     ]
   },
@@ -46,6 +58,6 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
     console.log('Slash commands were registered successfully!');
   } catch (error) {
-    console.log(`There was an error: ${error}`);
+    console.error(`There was an error: ${error}`);
   }
 })();
