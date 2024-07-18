@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&?family=Open+Sans&display=swap');
+
+html{
+    background-image: url("Background2.jpg");
+}
+
+body{
+    color: white;
+    font-size: 24px;
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+.menupage{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;  
+}
+
+.menubackground0{
+    background-color: #F9F3EE;
+    padding: 0.15rem;
+    border-radius: 1.25rem;
+}
+
+.menubackground1{
+    background-color: black;
+    padding: 0.4rem;
+    border-radius: 1.25rem;
+}
+
+.menubackground2 {
+    background-color: #18181a;
+    padding: 1rem;
+    padding-top: 0;
+    width: 250px;
+    height: 550px;
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
+}
+
+.menuheader {
+    margin: 0rem;
+    font-size: 22px;
+    font-family: 'Caveat', cursive;
+}
+
+.text-panel{
+    background-color: #18181a;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom-left-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+}
+
+.panel-settings{
+    float: right; 
+    padding-bottom:0; 
+    padding: 1rem;
+}
+
+.text-button{
+    cursor: pointer;
+	background-color:#fff;
+	color:black;
+	border-radius:10%;
+}
+
+.text-button:hover{
+    color:burlywood;
+}
+
+.text-button-emote{
+    padding: 1px;
+    border-radius:50%;
+    width: 23px;
+    height: 24px;
+    cursor: pointer;
+    background-color:#fff;
+    color:black;
+}
+
+.text-button-emote:hover {
+    color: burlywood;
+}
+
+.text-button-emote:active {
+    transform: translateY(2px);
+}
+
+.emote-panel{
+    width: 230px;
+    height: 85px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    display: none;
+}
+
+.emote-panel span{
+    cursor: pointer;
+}
+
+.glockTimer{
+    font-size: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.text-input{
+    border: none;
+    height: 1.5rem;
+    width: 10rem;
+    background: #fff;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+
+.chat-Text{
+    max-width: 210px;
+    display: inline-block;
+    font-family: 'Open Sans',
+    sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 1rem;
+    color: black;
+    margin: 0.5rem;
+}
+
+.panel-speaker {
+    margin-left: 50%;
+    width: 7.4rem;
+    height: 1.4rem;
+    background: #000;
+    transform: translate(-50%, 0);
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.panel-touch {
+    margin: 1rem;
+    margin-bottom: 0;
+    margin-left: 50%;
+    width: 6rem;
+    height: 0.25rem;
+    background: #a0a0a0;
+    transform: translate(-50%, 0);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.setting-panel{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.setting-panel:hover{
+    color:rgba(255, 255, 255, 0.8);
+}
+
+.setting-panel:active{
+    transform: rotate(20deg);
+}
+
+.setting-button{
+    border-radius: 4%;
+    font-family: 'Open Sans',
+    sans-serif;
+    font-size: 1rem;
+    border: #fefefe;
+    background-color: #440000;
+    box-shadow: 3px 4px 2px 0px rgb(48, 47, 47);
+    cursor: pointer;
+    color: white;
+}
+
+.setting-button:hover {
+    background-color: black;
+    box-shadow: 3px 4px 2px 0px #f00;
+    color: #ffff;
+}
+
+.setting-button:active {
+    background-color: #f00;
+    color: #ffff;
+    box-shadow: 2px 3px 4px 0px black;
+    transform: translateY(2px);
+}
+
+
+
+
+/* W3 */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    color: black;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #240000;
+    color: white;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+/* Humanity */
+
+.circle {
+    background: #938005;
+    border-radius: 50%;
+    color: black;
+    display: inline-block;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 50px;
+    margin: 0 auto;
+}
+  
+.circle span {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 0 15px;
+}

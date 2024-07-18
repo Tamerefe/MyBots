@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="BOT.css">
+    <link rel="shortcut icon" href="Sofi.png">
+    <title>SofiaBOT</title>
+</head>
+<body id="forForum">
+    
+    <div class="menupage" id="uWannaDelete">
+        <div class="menubackground0">
+            <div class="menubackground1">
+                <div class="panel-settings"> 
+                    <img src="settings.png" id="myBtn" class="setting-panel" width="32" height="32">
+                </div>
+                <div class="menubackground2">
+                    <div class="panel-speaker"></div>
+                    <p class="menuheader">
+                        <img src="xs.png" style="border-radius: 50% !important; width:2.25rem; height:2.25rem; padding-top:0.5rem"> 
+                        <span style="position: relative; bottom: 0.7rem;">Sofia</span>  
+                        <span id="onof" style="color:green; position: relative; bottom: 0.7rem;">Online</span>
+                    </p>
+                    <div id="chatPanel" class="chatPanelt">  
+                    </div>
+                </div>
+                <div id="panel-text"class="text-panel"> 
+                    <div id="panel-emote" class="emote-panel">
+                        <span>&#128512;</span>
+                        <span>&#128513;</span>
+                        <span>&#128514;</span>
+                        <span>&#128515;</span>
+                        <span>&#128516;</span>
+                        <span>&#128517;</span>
+                        <span>&#128518;</span>
+                        <span>&#128519;</span>
+                        <span>&#128520;</span>
+                        <span>&#128521;</span>
+                        <span>&#128522;</span>
+                        <span>&#128523;</span>
+                        <span>&#128524;</span>
+                        <span>&#128525;</span>
+                        <span>&#128526;</span>
+                        <span>&#128527;</span>
+                        <span>&#128528;</span>
+                        <span>&#128529;</span>
+                        <span>&#128530;</span>
+                        <span>&#128531;</span>
+                        <span>&#128532;</span>
+                    </div>
+                    <i onclick="emojiClick()" id="pop-up" class="far fa-grin text-button-emote"></i>
+                    <input oninput="timeToGlock()" id="input-text" class="text-input" type="text" maxlength="120">
+                    <button onclick="clickt()" id="clicktButton" class="text-button"><i id="micAndsend" class="fas fa-microphone"></i></button>
+                    <span id="timerGlock" class="glockTimer">120</span>
+                    <div class="panel-touch"></div>
+                </div>      
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" id="iWannaDeleteModal">
+            <div class="modal-header">
+            <span class="close">&times;</span>
+            <p style="margin: 0;">Chat Settings</p>
+            </div>
+            <div class="modal-body">
+                <form name="ccform">
+                    <label style="font-size: 1.25rem;">Choose a Font Type:</label>
+                    <select style="cursor: pointer;" name="fontTypeFORUM">
+                        <option value="Default">Default</option>
+                        <option value="None">None</option>
+                    </select><br>
+                    <label style="font-size: 1.25rem;">Choose a Font Size:</label>
+                    <select style="cursor: pointer;" name="fontSizeFORUM">
+                        <option value="24px">24 (Default)</option>
+                        <option value="26px">26</option>
+                        <option value="28px">28</option>
+                    </select><br>
+                    <label style="font-size: 1.25rem;">Choose a Background Color:</label>
+                    <select style="cursor: pointer;" name="backgroundColorFORUM">
+                        <option value="black">Black (Default)</option>
+                        <option value="green">Green</option>
+                        <option value="white">White</option>
+                        <option value="colorful">Colorful</option>
+                    </select><br>
+                    <button type="submit" class="setting-button">Save And Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="Alice.js" type="text/Javascript"></script>
+    <script src="App.js"></script>
+</body>
+</html>
