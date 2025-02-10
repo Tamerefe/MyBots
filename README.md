@@ -1,8 +1,15 @@
-## Asena 'a Working' Template 
+## Asena 'a Working' Template
+
 ![Asena](asena.jpg)
 
-## Ilyada 'a Working' Template 
+## Ilyada 'a Working' Template
+
 ![Ilyada](ilyada.jpg)
 
-## Sofia 'a Working' Template 
+## Sofia 'a Working' Template
+
 ![Sofia](sofia.jpg)
+
+# FortuNETeller 'a Working' Template
+
+![FortuNETeller](fortunetteler.png)
