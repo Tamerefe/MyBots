@@ -1,0 +1,135 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  background-image: url("../public/Background2.jpg");
+}
+
+body {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.menupage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+.menubackground2 {
+  background-color: #18181a;
+  padding: 1rem;
+  padding-top: 0;
+  width: 16rem;
+  height: 30rem;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+}
+
+.text-panel {
+  background-color: #18181a;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom-left-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+}
+
+.panel-settings {
+  float: right;
+  padding-bottom: 0;
+  padding: 1rem;
+}
+
+.emote-panel {
+  width: 13rem;
+  height: 5.75rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1.25rem;
+  border-radius: 1rem;
+  display: none;
+
+  span {
+    cursor: pointer;
+  }
+}
+
+.glockTimer {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text-input {
+  border: none;
+  height: 1.5rem;
+  width: 10rem;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid black;
+  color: #000;
+  font-size: 1rem;
+}
+
+.chat-Text {
+  max-width: 14rem;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  color: black;
+  margin: 0.5rem;
+}
+
+.panel-speaker {
+  margin-left: 50%;
+  width: 7.4rem;
+  height: 1.4rem;
+  background: #000;
+  transform: translate(-50%, 0);
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.panel-touch {
+  margin: 1rem;
+  margin-bottom: 0;
+  margin-left: 50%;
+  width: 6rem;
+  height: 0.25rem;
+  background: #a0a0a0;
+  transform: translate(-50%, 0);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.setting-panel {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:active {
+    transform: rotate(20deg);
+  }
+}
