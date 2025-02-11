@@ -1,6 +1,20 @@
 import re
-import sofi as long
+import random
 
+R_EATING = "I don't like eating anything because I'm a bot obviously!"
+R_ADVICE = "If I were you, I would go to the internet and type exactly what you wrote there!"
+R_HOW_ARE_YOU = "I'm doing fine, thanks for asking!"
+
+# Stores the conversation context (previous user input)
+conversation_history = []
+
+def unknown():
+    response = ["Could you please re-phrase that? ",
+                "...",
+                "Sounds about right.",
+                "What does that mean?"][
+        random.randrange(4)]
+    return response
 
 def messageP(user_message, RecogniseWord, single_response=False, required_words=[]):
     msgCertain = 0
@@ -43,23 +57,45 @@ def checkMsg(message):
     response('Thank you!', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
 
     # Longer responses
-    response(long.R_ADVICE, ['give', 'advice'], required_words=['advice'])
-    response(long.R_EATING, ['what', 'you', 'eat'], required_words=['you', 'eat'])
+    response(R_ADVICE, ['give', 'advice'], required_words=['advice'])
+    response(R_EATING, ['what', 'you', 'eat'], required_words=['you', 'eat'])
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
-    # print(highest_prob_list)
-    # print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
 
-    return long.unknown() if highest_prob_list[best_match] < 1 else best_match
+    # If no strong match is found, return unknown
+    return unknown() if highest_prob_list[best_match] < 1 else best_match
 
 
-# Used to get the response
 def responseGet(user_input):
     split_message = re.split(r'\s+|[,;?!.-]\s*', user_input.lower())
     response = checkMsg(split_message)
+    
+    # Save the latest user input into conversation history
+    conversation_history.append(user_input.lower())
+
     return response
 
+def ask_follow_up():
+    follow_up_questions = [
+        "Tell me more about that.",
+        "What happened next?",
+        "Can you elaborate?",
+        "Why do you think that is?"
+    ]
+    return random.choice(follow_up_questions)
 
-# Testing the response system
+# Main loop to allow continuous conversation
 while True:
-    print('Sofia: ' + responseGet(input('You: ')))
+    user_input = input('You: ')
+    
+    # Check if the conversation is repetitive (e.g., asking how the bot is doing multiple times)
+    if 'how are you' in user_input.lower():
+        print('Ulku: ' + R_HOW_ARE_YOU)
+    else:
+        response = responseGet(user_input)
+        
+        # If the bot feels the conversation is stalled, it can ask a follow-up question
+        if random.random() < 0.2:  # 20% chance to ask a follow-up
+            print('Ulku: ' + ask_follow_up())
+        else:
+            print('Ulku: ' + response)
