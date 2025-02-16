@@ -84,18 +84,25 @@ def ask_follow_up():
     ]
     return random.choice(follow_up_questions)
 
-# Main loop to allow continuous conversation
-while True:
-    user_input = input('You: ')
-    
-    # Check if the conversation is repetitive (e.g., asking how the bot is doing multiple times)
-    if 'how are you' in user_input.lower():
-        print('Ulku: ' + R_HOW_ARE_YOU)
+def colorize_response(response):
+    colors = ['\033[91m', '\033[92m', '\033[93m', '\033[94m', '\033[95m', '\033[96m']
+    reset_color = '\033[0m'
+    color = random.choice(colors)
+    return f"{color}{response}{reset_color}"
+
+def handle_audio_input(audio_text):
+    response = responseGet(audio_text)
+    if random.random() < 0.2:  # 20% chance to ask a follow-up
+        return colorize_response(ask_follow_up())
     else:
-        response = responseGet(user_input)
-        
-        # If the bot feels the conversation is stalled, it can ask a follow-up question
-        if random.random() < 0.2:  # 20% chance to ask a follow-up
-            print('Ulku: ' + ask_follow_up())
-        else:
-            print('Ulku: ' + response)
+        return colorize_response(response)
+
+# Main loop to allow continuous conversation
+if __name__ == "__main__":
+    from audio import speech_to_text
+
+    while True:
+        audio_text = speech_to_text()
+        if audio_text:
+            print('You: ' + audio_text)
+            print('Ulku: ' + handle_audio_input(audio_text))
