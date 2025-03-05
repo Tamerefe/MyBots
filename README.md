@@ -1,19 +1,23 @@
 ## Asena 'a Working' Template
 
-![Asena](asena.jpg)
+![Asena](Img/asena.jpg)
 
 ## Ilyada 'a Working' Template
 
-![Ilyada](ilyada.jpg)
+![Ilyada](Img/ilyada.jpg)
 
 ## Sofia 'a Working' Template
 
-![Sofia](sofia.jpg)
+![Sofia](Img/sofia.jpg)
 
 # FortuNETeller 'a Working' Template
 
-![FortuNETeller](fortunetteler.png)
+![FortuNETeller](Img/fortunetteler.png)
 
 # Ulku 'a Working' Template
 
-![Ulku](ulku.png)
+![Ulku](Img/ulku.png)
+
+# System Status Checker 'a Working' Template
+
+![System](Img/system.png)

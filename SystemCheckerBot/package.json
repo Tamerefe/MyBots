@@ -1,0 +1,20 @@
+{
+    "name": "system-checker-bot",
+    "version": "1.0.0",
+    "description": "A bot to check system status",
+    "main": "main.py",
+    "dependencies": {
+        "psutil": "^5.8.0",
+        "speedtest-cli": "^2.1.3",
+        "wmi": "^1.5.1",
+        "uuid": "^8.3.2",
+        "os": "0.1.1",
+        "time": "0.1.0",
+        "rich": "^10.2.2"
+    },
+    "scripts": {
+        "start": "python main.py"
+    },
+    "author": "",
+    "license": "ISC"
+}
