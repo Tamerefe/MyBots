@@ -82,6 +82,65 @@ def list_processes():
     for proc in psutil.process_iter(['pid', 'name', 'status']):
         print(f"{proc.info['pid']:<10} {proc.info['name']:<40} {proc.info['status']:<10}")
 
+def calculate_download_time():
+    try:
+        size_input = input("Dosya boyutunu girin (örn: 100MB, 2GB, 5000000B): ").strip().upper()
+        if size_input.endswith("GB"):
+            file_size = float(size_input[:-2]) * 1024 * 1024 * 1024
+            size_str = f"{float(size_input[:-2])} GB"
+        elif size_input.endswith("MB"):
+            file_size = float(size_input[:-2]) * 1024 * 1024
+            size_str = f"{float(size_input[:-2])} MB"
+        elif size_input.endswith("KB"):
+            file_size = float(size_input[:-2]) * 1024
+            size_str = f"{float(size_input[:-2])} KB"
+        elif size_input.endswith("B"):
+            file_size = float(size_input[:-1])
+            size_str = f"{float(size_input[:-1])} B"
+        else:
+            file_size = float(size_input)
+            size_str = f"{file_size} B"
+
+        speed_input = input("İndirme hızını girin (örn: 50Mbps, 100Kbps, 1Gbps): ").strip().upper()
+        if speed_input.endswith("GBPS"):
+            download_speed = float(speed_input[:-4]) * 1_000_000_000
+            speed_unit = "Gbps"
+        elif speed_input.endswith("MBPS"):
+            download_speed = float(speed_input[:-4]) * 1_000_000
+            speed_unit = "Mbps"
+        elif speed_input.endswith("KBPS"):
+            download_speed = float(speed_input[:-4]) * 1_000
+            speed_unit = "Kbps"
+        elif speed_input.endswith("BPS"):
+            download_speed = float(speed_input[:-3])
+            speed_unit = "bps"
+        else:
+            print("[bold red]Hız birimini doğru formatta girin! (ör: 50Mbps, 100Kbps, 1Gbps)[/bold red]")
+            return
+
+        # Doğru formül: Süre(saniye) = Dosya Boyutu (Bayt) * 8 / İndirme hızı (bit/saniye)
+        seconds = file_size * 8 / download_speed
+        minutes, sec = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
+        
+        print(f"\n[bold green]--- İndirme Süresi Hesabı ---[/bold green]")
+        print(f"Dosya Boyutu: {size_str}")
+        print(f"İndirme Hızı: {speed_input}")
+        print(f"Tahmini Süre: {int(hours)} saat, {int(minutes)} dakika, {int(sec)} saniye")
+        
+        # Ek bilgiler
+        if seconds < 60:
+            print(f"Toplam Süre: {seconds:.2f} saniye")
+        elif seconds < 3600:
+            print(f"Toplam Süre: {minutes} dakika {sec} saniye")
+        else:
+            print(f"Toplam Süre: {hours} saat {minutes} dakika {sec} saniye")
+            
+    except ValueError:
+        print("[bold red]Hata:[/bold red] Geçersiz sayı formatı!")
+    except Exception as e:
+        print(f"[bold red]Hata:[/bold red] {e}")
+
 def main():
     while True:
         print("\n[bold cyan]System Status Checker Bot[/bold cyan]")
@@ -91,7 +150,8 @@ def main():
         print("4. Get MAC Address")
         print("5. List Files in Directory")
         print("6. List Running Processes")
-        print("7. Exit\n")
+        print("7. Dosya İndirme Süresi Hesapla\n")
+        print("8. Exit\n")
         
         choice = input("Enter your choice: ")
         
@@ -108,6 +168,8 @@ def main():
         elif choice == "6":
             list_processes()
         elif choice == "7":
+            calculate_download_time()
+        elif choice == "8":
             print("Exiting... Goodbye!")
             break
         else:
