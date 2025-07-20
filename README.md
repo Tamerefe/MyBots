@@ -17,7 +17,3 @@
 # Ulku 'a Working' Template
 
 ![Ulku](Img/ulku.png)
-
-# System Status Checker 'a Working' Template
-
-![System](Img/system.png)
