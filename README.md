@@ -10,6 +10,8 @@ Bu repository, farklı platformlar ve teknolojiler kullanılarak geliştirilmiş
 - [Web Sohbet Botu](#web-sohbet-botu)
 - [Masaüstü Uygulamaları](#masaüstü-uygulamaları)
   - [FortuNETeller](#fortuneteller)
+- [Ticaret Botu](#ticaret-botu)
+  - [TradeBoT](#tradebot)
 - [Sesli Sohbet Botu](#sesli-sohbet-botu)
 
 ---
@@ -207,6 +209,42 @@ python main.py
 
 ---
 
+## 📈 Ticaret Botu
+
+![Trade](Img/trader.png)
+
+### TradeBoT
+
+**Teknoloji:** C
+
+CSV uzerinden sahte hisse verileriyle calisan basit bir trade sinyal botu. EMA, RSI, ATR ve volatilite hesaplamalariyla skor uretir; risk yonetimi icin stop loss, take profit ve pozisyon boyutu belirler.
+
+#### Ozellikler:
+- EMA12/EMA26 trend analizi
+- RSI tabanli momentum sinyali
+- Breakout tespiti (lookback 20)
+- ATR tabanli stop loss ve take profit
+- %1 risk ile pozisyon boyutu hesaplama
+
+#### Kurulum
+
+```bash
+cd TradeBoT
+```
+
+#### Calistirma
+
+```bash
+gcc realtime_bot.c -o realtime_bot -lm
+./realtime_bot
+```
+
+#### Veri Dosyasi
+
+- `fake_stocks_10tickers_10days_10min.csv` - 10 hisse icin 10 gunluk 10 dakikalik sahte veri
+
+---
+
 ## 🎤 Sesli Sohbet Botu
 
 ![Ulku](Img/ulku.png)
@@ -263,6 +301,7 @@ MyBots/
 │   └── Ilyada/         # Python Discord botu
 ├── WebChatBot/         # Next.js web sohbet botu
 ├── FortuNETeller/      # Tkinter masaüstü uygulaması
+├── TradeBoT/            # C tabanlı trade sinyal botu
 ├── TextChatBot/        # Sesli sohbet botu
 └── Img/                # Bot görselleri
 ```
